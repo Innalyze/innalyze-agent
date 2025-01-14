@@ -1,0 +1,19 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+POST http://127.0.0.1:8008/ask1
+Accept: application/json
+
+{
+   "question": "What was the Contribution of \"segment de client\" ?"
+
+}
+
+
+
+
+
