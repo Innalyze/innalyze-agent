@@ -35,7 +35,9 @@ config.set_main_option("sqlalchemy.url", configService.get_database_url())
 
 def include_object(object, name, type_, reflected, compare_to):
     # Exclude specific tables by name
-    excluded_tables = {"hotel_metrics", "reservation_metrics","revenue_metrics"}
+
+    excluded_tables = {"checkpoints","checkpoint_writes","checkpoint_migrations","checkpoint_blobs","hotel_metrics",
+                       "reservation_metrics","revenue_metrics"}
 
     # Only include if the table is not in the excluded list
     if type_ == "table" and name in excluded_tables:
