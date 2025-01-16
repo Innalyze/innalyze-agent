@@ -8,7 +8,7 @@ services:
     command: bash /start.sh
     volumes:
       - ./:/var/www
-      - ./docker/api/start.sh:/start.sh
+      - ./docker/start.sh:/start.sh
       - ./conda/pkgs:/opt/conda/pkgs/
       #- $SSL_CERT_PATH:/root/.ssh/
     ports:
