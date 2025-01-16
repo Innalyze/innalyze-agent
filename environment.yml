@@ -33,6 +33,7 @@ dependencies:
   - wheel=0.44.0
   - xz=5.4.6
   - zlib=1.2.13
+  - python-dotenv=0.21.0
   - pip:
       - alembic==1.14.0
       - attrs==24.3.0
