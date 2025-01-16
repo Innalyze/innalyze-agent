@@ -3,7 +3,7 @@ services:
   api:
     build:
       context: ./
-      dockerfile: ./docker/api/Dockerfile
+      dockerfile: ./docker/Dockerfile
     working_dir: /var/www
     command: bash /start.sh
     volumes:
