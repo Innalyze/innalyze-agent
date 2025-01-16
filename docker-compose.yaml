@@ -10,7 +10,7 @@ services:
       - ./:/var/www
       - ./docker/api/start.sh:/start.sh
       - ./conda/pkgs:/opt/conda/pkgs/
-      - $SSL_CERT_PATH:/root/.ssh/
+      #- $SSL_CERT_PATH:/root/.ssh/
     ports:
       - "127.0.0.1:${PORT}:${PORT}"
 
