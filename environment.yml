@@ -5,6 +5,7 @@ dependencies:
   - _libgcc_mutex=0.1
   - _openmp_mutex=5.1
   - annotated-types=0.6.0
+  - loguru=0.5.3
   - anyio=4.6.2
   - bzip2=1.0.8
   - ca-certificates=2024.11.26
