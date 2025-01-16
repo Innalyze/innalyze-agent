@@ -25,4 +25,5 @@ conda env create -f ./environment.yml
 #pip install httpcore==0.9.1
 #pip install httpx==0.13.3
 # launch api
+alembic upgrade head
 python -m uvicorn main:app --reload --port 8008 --host 0.0.0.0
