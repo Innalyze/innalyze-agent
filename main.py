@@ -8,10 +8,17 @@ from Text2SQL import answer_question
 
 from models.dto.Question import Question
 from starlette.responses import StreamingResponse
+from fastapi.staticfiles import StaticFiles
+import os
+
 bootstrap()
 # from GraphAgent import get_answer
 app = FastAPI()
 
+if os.path.exists(os.path.join("front", "dist", 'index.html')):
+    app.mount(path="/",
+              app=StaticFiles(directory="front/dist", html=True),
+              name="front")
 
 
 

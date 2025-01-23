@@ -1,4 +1,3 @@
-
 services:
   api:
     build:
@@ -14,18 +13,24 @@ services:
     ports:
       - "127.0.0.1:${PORT}:${PORT}"
 
+  front:
+    image: node:22.13.1-bookworm-slim
+    working_dir: /var/www/front
+    restart: "no"
+    command: sh -l -c "npm i && npm run build"
+    volumes:
+      - ./:/var/www
 
   database:
     image: "postgres:17.2-alpine"
     ports:
-      - '127.0.0.1:5132:5432'
+      - "127.0.0.1:5132:5432"
     environment:
       POSTGRES_PASSWORD: innalyze2024**
     volumes:
       - postgres-volume:/var/lib/postgresql/data
       - ./docker:/docker-entrypoint-initdb.d
       - ./gitignored.d:/gitignored.d
-
 
 volumes:
   postgres-volume:
