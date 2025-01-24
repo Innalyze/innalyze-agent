@@ -25,7 +25,7 @@ if os.path.exists(os.path.join("front", "dist", 'index.html')):
               app=StaticFiles(directory="front/dist", html=True),
               name="front")
 
-app.mount("/api", api_app)
+
 
 @api_app.websocket("/ask")
 async def answer(socket: WebSocket):
@@ -35,6 +35,8 @@ async def answer(socket: WebSocket):
         await socket.send_text(str(an))
     await socket.close()
 
+
+app.mount("/api", api_app)
 # @app.post("/ask1")
 # async def answer1(question: Question ):
 #     return answer_question(question)
