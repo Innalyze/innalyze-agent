@@ -14,20 +14,20 @@ import os
 bootstrap()
 # from GraphAgent import get_answer
 app = FastAPI()
-api_app = FastAPI(
-    openapi_url=None,
-    docs_url=None,  # Disable docs (Swagger UI)
-    redoc_url=None,  # Disable redoc
-)
+# api_app = FastAPI(
+#     openapi_url=None,
+#     docs_url=None,  # Disable docs (Swagger UI)
+#     redoc_url=None,  # Disable redoc
+# )
 
-if os.path.exists(os.path.join("front", "dist", 'index.html')):
-    app.mount(path="/",
-              app=StaticFiles(directory="front/dist", html=True),
-              name="front")
+# if os.path.exists(os.path.join("front", "dist", 'index.html')):
+#     app.mount(path="/",
+#               app=StaticFiles(directory="front/dist", html=True),
+#               name="front")
 
 
 
-@api_app.websocket("/ask")
+@app.websocket("/api/ask")
 async def answer(socket: WebSocket):
     await socket.accept()
     question: Question = Question.model_validate_json(await socket.receive_text())
@@ -36,7 +36,7 @@ async def answer(socket: WebSocket):
     await socket.close()
 
 
-app.mount("/api", api_app)
+# app.mount("/api", api_app)
 # @app.post("/ask1")
 # async def answer1(question: Question ):
 #     return answer_question(question)
