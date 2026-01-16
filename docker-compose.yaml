@@ -26,7 +26,7 @@ services:
     ports:
       - "127.0.0.1:5132:5432"
     environment:
-      POSTGRES_PASSWORD: innalyze2024**
+      POSTGRES_PASSWORD: *******
     volumes:
       - postgres-volume:/var/lib/postgresql/data
       - ./docker:/docker-entrypoint-initdb.d
